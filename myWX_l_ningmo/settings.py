@@ -146,6 +146,10 @@ WX_APP_SECRET = 'afccc25cbadee65a0d6e9f13ef8cafbf'
 
 #设置图片保存位置
 IMAGES_DIR = os.path.join(BASE_DIR, 'uploadImages')
+if not os.path.exists(IMAGES_DIR):
+    os.makedirs(IMAGES_DIR)
+
+
 
 # logging日志配置
 LOG_DIR = os.path.join(BASE_DIR, 'log')

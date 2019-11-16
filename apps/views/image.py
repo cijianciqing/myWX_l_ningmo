@@ -72,12 +72,12 @@ class ImageView(View, CommonResponseMixin):
         response_data = []
         # print(files['test'])
         for key, uploaded_file in files.items():
-            logger.info('image file from weixin, key is : ',key)
-            logger.info('image file from weixin, uploaded_file is : ',uploaded_file)
+            logger.info('image file from weixin, key is : ' + key)
+            # logger.info('image file from weixin, uploaded_file is : ' + uploaded_file)
             content = uploaded_file.read()
             md5 = hashlib.md5(content).hexdigest()
             path = os.path.join(settings.IMAGES_DIR, md5 + '.jpg')
-            print('image file from weixin, md5 is : ',md5)
+            logger.info('image file from weixin, md5 is : ' + md5)
             with open(path, 'wb+') as f:
                 f.write(content)
             response_data.append({

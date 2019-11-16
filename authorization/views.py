@@ -19,7 +19,9 @@ def authorize(request):
     return __authorize_by_code(request)
 
 def __authorize_by_code(request):
-    logger.info('session content in auth/authorize01: ', request.session.session_key, " : ", request.session.items())
+    if(request.session.session_key is not None):
+        logger.info('session content in auth/authorize01: '+ request.session.session_key)
+    # , " : " + request.session.items()
     response = {}
     post_data = request.body.decode('utf-8')
     post_data = json.loads(post_data)
@@ -45,7 +47,9 @@ def __authorize_by_code(request):
         return JsonResponse(response, safe=False)
     request.session['open_id'] = open_id
     request.session['is_authorized'] = True
-    logger.info('session content in auth/authorize: ' ,request.session.session_key," : ",request.session.items())
+    if (request.session.session_key is not None):
+        logger.info('session content in auth/authorize01: ' + request.session.session_key)
+    # ," : " + request.session.items()
 
     # User.objects.get(open_id=open_id) # 不要用get，用get查询如果结果数量 !=1 就会抛异常
     # 如果用户不存在，则新建用户
@@ -60,7 +64,7 @@ def __authorize_by_code(request):
         initMenu.append(imageApp)
         new_user.menu.set(initMenu)
         # print("add new user : ",new_user.nickname)
-        logger.info("add a new user : ", new_user.nickname)
+        logger.info("add a new user : " + new_user.nickname)
 
 
     message = 'user authorize successfully.'
@@ -71,9 +75,12 @@ def logout(request):
     '''
     注销，小程序删除存储的Cookies
     '''
-    logger.info('session content in auth/logout: ', request.session.items())
+    for key, value in request.session.items():
+        logger.info('session content in auth/logout: %s : %s' % (key, value))
     request.session.clear()
-    logger.info('session content in auth/logout02: ', request.session.items())
+    if(request.session.items() is not None):
+        for key, value in request.session.items():
+            logger.info('session content2 in auth/logout: %s : %s' % (key, value))
     response = {}
     response['result_code'] = 0
     response['message'] = 'logout success.'
