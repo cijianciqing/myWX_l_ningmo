@@ -21,6 +21,9 @@ import utils.myResponse
 from utils.auth import already_authorized, get_user
 from utils.myResponse import CommonResponseMixin, ReturnCode
 
+import logging
+
+logger = logging.getLogger('django')
 
 def init_app_data():
     data_file = os.path.join(settings.BASE_DIR, 'app.yaml')
@@ -47,7 +50,7 @@ class UserMenu(View, CommonResponseMixin):
             response = self.wrap_json_response(code=ReturnCode.UNAUTHORIZED)
             return JsonResponse(response, safe=False)
         # 否则返回用户定制的menu
-        print('session content in service/menu/user: ', request.session.session_key, request.session.items())
+        logger.info('session content in service/menu/user: ', request.session.session_key, request.session.items())
         open_id = request.session.get('open_id')
         user = User.objects.get(open_id=open_id)
         menu_list = user.menu.all()
@@ -63,7 +66,7 @@ class UserMenu(View, CommonResponseMixin):
         if not already_authorized(request):
             response = self.wrap_json_response(code=ReturnCode.UNAUTHORIZED)
             return JsonResponse(response, safe=False)
-        print('session content in service/menu/user: ', request.session.session_key, request.session.items())
+        logger.info('session content in service/menu/user: ', request.session.session_key, request.session.items())
         user = get_user(request)
         post_menu = json.loads(request.body.decode('utf-8'))
         post_menu = post_menu.get('data')

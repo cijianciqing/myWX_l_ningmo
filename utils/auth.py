@@ -14,7 +14,7 @@ from utils.wx.code2session import code2session
 # 判断是否已经授权
 def already_authorized(request):
     is_authorized = False
-    print('/auth/status result: ',request.session.session_key," : ",request.session.get('is_authorized'))
+    # print('/auth/status result: ',request.session.session_key," : ",request.session.get('is_authorized'))
     if request.session.get('is_authorized'):
         is_authorized = True
     return is_authorized

@@ -3,7 +3,7 @@
 # @Author         : imooc
 # @Email          : imooc@foxmail.com
 # @Created at     : 2018/12/25
-# @Filename       : init.py
+# @Filename       : initDB.py
 # @Desc           :
 
 

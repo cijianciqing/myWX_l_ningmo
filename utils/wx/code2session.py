@@ -5,6 +5,9 @@ import requests
 from utils import proxy
 import myWX_l_ningmo.settings
 
+import logging
+
+logger = logging.getLogger('django')
 
 def code2session(appid, code):
     API = 'https://api.weixin.qq.com/sns/jscode2session'
@@ -14,5 +17,5 @@ def code2session(appid, code):
     response = requests.get(url=url, proxies=proxy.proxy())
 
     data = json.loads(response.text)
-    print('result from weixinServer : ',data)
+    logger.info('result from weixinServer : ',data)
     return data

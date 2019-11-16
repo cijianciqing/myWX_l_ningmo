@@ -11,12 +11,15 @@ from utils.myResponse import wrap_json_response, ReturnCode, CommonResponseMixin
 from utils.auth import  c2s,already_authorized
 
 from .models import User
+import logging
+
+logger = logging.getLogger('django')
 
 def authorize(request):
     return __authorize_by_code(request)
 
 def __authorize_by_code(request):
-    print('session content in auth/authorize01: ', request.session.session_key, " : ", request.session.items())
+    logger.info('session content in auth/authorize01: ', request.session.session_key, " : ", request.session.items())
     response = {}
     post_data = request.body.decode('utf-8')
     post_data = json.loads(post_data)
@@ -42,7 +45,7 @@ def __authorize_by_code(request):
         return JsonResponse(response, safe=False)
     request.session['open_id'] = open_id
     request.session['is_authorized'] = True
-    print('session content in auth/authorize: ' ,request.session.session_key," : ",request.session.items())
+    logger.info('session content in auth/authorize: ' ,request.session.session_key," : ",request.session.items())
 
     # User.objects.get(open_id=open_id) # 不要用get，用get查询如果结果数量 !=1 就会抛异常
     # 如果用户不存在，则新建用户
@@ -50,12 +53,14 @@ def __authorize_by_code(request):
         new_user = User(open_id=open_id, nickname=nickname)
         # 初始化新用户
         new_user.save()
+        # 默认情况下为用户添加“图片上传功能”
         initMenu = []
         imageApp = App.objects.get(appid='549eaaf72cb23716e2b1313acfaed23c')  # 图片上传
-        print("this is myInit method in User: ", imageApp.to_dict())
+        # print("this is myInit method in User: ", imageApp.to_dict())
         initMenu.append(imageApp)
         new_user.menu.set(initMenu)
-        print("add new user : ",new_user.nickname)
+        # print("add new user : ",new_user.nickname)
+        logger.info("add a new user : ", new_user.nickname)
 
 
     message = 'user authorize successfully.'
@@ -66,8 +71,9 @@ def logout(request):
     '''
     注销，小程序删除存储的Cookies
     '''
-    print('session content in auth/logout: ', request.session.items())
+    logger.info('session content in auth/logout: ', request.session.items())
     request.session.clear()
+    logger.info('session content in auth/logout02: ', request.session.items())
     response = {}
     response['result_code'] = 0
     response['message'] = 'logout success.'

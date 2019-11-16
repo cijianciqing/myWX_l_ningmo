@@ -1,0 +1,4 @@
+2019-11-16 15:33:29,905 [MainThread:156568] [G:/pythonProject/Django/myWX_l_ningmo/myGlobalConfig/tests.py:logger_demo:11] [INFO]- hello world
+2019-11-16 15:33:29,905 [MainThread:156568] [G:/pythonProject/Django/myWX_l_ningmo/myGlobalConfig/tests.py:logger_demo:12] [INFO]- hello world [FILTER FLAG]
+2019-11-16 15:33:29,906 [MainThread:156568] [G:/pythonProject/Django/myWX_l_ningmo/myGlobalConfig/tests.py:logger_demo:14] [DEBUG]- debug message
+2019-11-16 15:33:29,906 [MainThread:156568] [G:/pythonProject/Django/myWX_l_ningmo/myGlobalConfig/tests.py:logger_demo:16] [ERROR]- error message

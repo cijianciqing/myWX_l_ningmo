@@ -14,7 +14,9 @@ from django.http import Http404, HttpResponse, FileResponse, JsonResponse
 from myWX_l_ningmo import settings
 import utils
 from utils.myResponse import ReturnCode, CommonResponseMixin
+import logging
 
+logger = logging.getLogger('django')
 
 #无用方法，已通过class ImageView（）进行优化
 # def image(request):
@@ -70,8 +72,8 @@ class ImageView(View, CommonResponseMixin):
         response_data = []
         # print(files['test'])
         for key, uploaded_file in files.items():
-            print('image file from weixin, key is : ',key)
-            print('image file from weixin, uploaded_file is : ',uploaded_file)
+            logger.info('image file from weixin, key is : ',key)
+            logger.info('image file from weixin, uploaded_file is : ',uploaded_file)
             content = uploaded_file.read()
             md5 = hashlib.md5(content).hexdigest()
             path = os.path.join(settings.IMAGES_DIR, md5 + '.jpg')

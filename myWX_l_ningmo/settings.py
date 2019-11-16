@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     # 自建应用
     'apps.apps.AppsConfig',
     'authorization.apps.AuthorizationConfig',
-    'testApp.apps.TestappConfig'
+    'testApp.apps.TestappConfig',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +146,77 @@ WX_APP_SECRET = 'afccc25cbadee65a0d6e9f13ef8cafbf'
 
 #设置图片保存位置
 IMAGES_DIR = os.path.join(BASE_DIR, 'uploadImages')
+
+# logging日志配置
+LOG_DIR = os.path.join(BASE_DIR, 'log')
+if not os.path.exists(LOG_DIR):
+    os.makedirs(LOG_DIR)
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'formatters': {# 日志格式
+        'standard': {
+            'format': '%(asctime)s [%(threadName)s:%(thread)d] '
+                      '[%(pathname)s:%(funcName)s:%(lineno)d] [%(levelname)s]- %(message)s'
+        },
+        'simple': {
+            'format': '%(asctime)s %(message)s'
+        }
+    },
+    'filters': {# 过滤器
+        'test':{
+            '()': 'myGlobalConfig.myLogFilter.TestFilter'
+        }
+    },
+    'handlers': {# 处理器
+        'null': {
+            'level': 'DEBUG',
+            'class': 'logging.NullHandler',
+        },
+        'error_handler': {# error内容输出到另外的文件
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_DIR,'error.log'),#日志输出文件
+            'maxBytes':1024*1024*1,#文件大小
+            'backupCount': 5,#备份份数
+            'formatter':'standard',#使用哪种formatters日志格式
+            'encoding': 'utf8',
+        },
+        'file_handler': {# 记录到日志文件(需要创建对应的目录，否则会出错)
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_DIR,'service.log'),# 日志输出文件
+            'maxBytes':1024*1024*1,#文件大小
+            'backupCount': 5,#备份份数
+            'formatter':'standard',#使用哪种formatters日志格式
+            'encoding': 'utf8',
+        },
+        'console_handler':{# 输出到控制台
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'standard',
+        },
+        'statistics_handler':{
+            'level':'DEBUG',
+            'class':'logging.handlers.RotatingFileHandler',
+            'filename': os.path.join(LOG_DIR,'statistics.log'),
+            'maxBytes':1024*1024*5,
+            'backupCount': 5,
+            'formatter':'simple',
+            'encoding': 'utf8',
+        }
+    },
+    'loggers': {# logging管理器
+        'django': {
+            # 'handlers': ['console_handler', 'file_handler', 'error_handler'],
+            'handlers': ['console_handler', 'file_handler'],
+            'filters': ['test'],
+            'level': 'DEBUG'
+        },
+        'statistics': {
+            'handlers': ['statistics_handler'],
+            'level': 'DEBUG'
+        }
+    }
+}
