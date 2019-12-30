@@ -28,7 +28,6 @@ def basicTest03(request):
     return JsonResponse(data=myResponse_data,safe=False)
 
 def testBaidu01(request):
-
     myCode = request.GET.get("code")
     logger.info("Baidu Return Code : ",myCode)
     getToken(myCode)
@@ -36,7 +35,9 @@ def testBaidu01(request):
 
 def testBaidu02(request):
     myCode = getCode()
-    return HttpResponse(None)
+    myresponse_content = {'data22': "aaaaaaaaa"}
+    myResponse_data = wrap_json_response(data=myresponse_content, code=ReturnCode.SUCCESS)
+    return JsonResponse(data=myResponse_data, safe=False)
 
 class ResponseTest01(View, CommonResponseMixin):
     def get(self, request):

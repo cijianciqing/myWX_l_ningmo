@@ -15,9 +15,8 @@ def getCode():
     params = 'response_type=code&client_id=%s&redirect_uri=%s&scope=email&display=popup' % \
              (myWX_l_ningmo.settings.Baidu_API_Key,myWX_l_ningmo.settings.Baidu_RedirectUri)
     url = API + '?' + params
-    requests.get(url=url)
-
-    # data = json.loads(response.text)
-    # logger.info('Baidu result from BaiduGetCode : ',data)
-    # return data
+    response = requests.get(url=url)
+    data = json.loads(response.text)
+    logger.info('Baidu result from BaiduGetCode : ',data)
+    return data
 
