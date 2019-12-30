@@ -58,6 +58,7 @@ class ImageView(View, CommonResponseMixin):
         md5 = request.GET.get('md5')
         imgfile = os.path.join(settings.IMAGES_DIR, md5 + '.jpg')
 
+
         if os.path.exists(imgfile):
             data = open(imgfile, 'rb').read()
             # return HttpResponse(data, content_type='image/jpg')

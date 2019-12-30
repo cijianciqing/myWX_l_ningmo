@@ -23,13 +23,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!atvb#w6xueqiswau4&v2=ztrn!713qe$px-3d6*-7)x3fg4gv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
 #request[访问微信]是否需要代理
 USE_PROXY = False
 # Application definition
+
+
+
+#百度开发平台应用设置
+Baidu_API_Key = '144UDoNWHQljtm9U22xMMAyo'
+Baidu_RedirectUri='www.cijianciqing.xyz/test/testBaidu01'
+Baidu_Secret_Key= 'UwDrMPbjzpEt15yDq2T8iDGSVoxT5DPp'
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -152,7 +159,7 @@ if not os.path.exists(IMAGES_DIR):
 
 
 # logging日志配置
-LOG_DIR = os.path.join(BASE_DIR, 'log')
+LOG_DIR = os.path.join(BASE_DIR, 'myLog')
 if not os.path.exists(LOG_DIR):
     os.makedirs(LOG_DIR)
 

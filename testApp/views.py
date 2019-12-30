@@ -2,6 +2,11 @@ import json
 from django.shortcuts import render, render_to_response
 from django.http import HttpResponse,JsonResponse, FileResponse
 from django.views import View
+from utils.baidu.getToken import getToken
+
+import logging
+
+logger = logging.getLogger('django')
 
 def index(request):
     return render_to_response('testApp/myIndex.html', locals())
@@ -20,6 +25,12 @@ def basicTest03(request):
     myresponse_content = {'data22': "bbb"}
     myResponse_data = wrap_json_response(data=myresponse_content,code=ReturnCode.SUCCESS)
     return JsonResponse(data=myResponse_data,safe=False)
+
+def testBaidu01(request):
+    myCode = request.GET.get("code")
+    logger.info("Baidu Return Code : ",myCode)
+    getToken(myCode)
+
 
 class ResponseTest01(View, CommonResponseMixin):
     def get(self, request):
