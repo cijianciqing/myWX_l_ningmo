@@ -22,6 +22,7 @@ urlpatterns = [
     path('test02',views.basicTest02),
     path('test03',views.basicTest03),
     path('test04',views.ResponseTest01.as_view()),
+    path('testBaidu01',views.testBaidu01),
     path('testSession01', views.test_session),
     path('testSession02', views.test_session2),
     re_path('^$',views.index)
