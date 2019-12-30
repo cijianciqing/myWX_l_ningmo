@@ -33,7 +33,7 @@ def testBaidu01(request):
     logger.info("Baidu Return Code : ",myCode)
     getToken(myCode)
 
-def testBaidu01(request):
+def testBaidu02(request):
     myCode = getCode()
 
 class ResponseTest01(View, CommonResponseMixin):
