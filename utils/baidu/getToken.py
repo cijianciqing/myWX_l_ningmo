@@ -10,7 +10,7 @@ import logging
 logger = logging.getLogger('django')
 
 def getToken(code):
-    logger.info('Baidu getToken start : ')
+    logger.info('Baidu getToken start')
     API = 'https://openapi.baidu.com/oauth/2.0/token'
     params = 'grant_type=authorization_code&code=%s&client_id=%s&client_secret=%s&redirect_uri=%s' % \
              (code,myWX_l_ningmo.settings.Baidu_API_Key,myWX_l_ningmo.settings.Baidu_Secret_Key,myWX_l_ningmo.settings.Baidu_RedirectUri)
