@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-MyServerPrefix = 'http://172.16.207.119:8000'
+MyServerPrefix = 'http://www.cijianciqing.xyz'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -88,7 +88,7 @@ WSGI_APPLICATION = 'myWX_l_ningmo.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mywx',
+        'NAME': 'myWX',
         'USER': 'root',
         'PASSWORD': 'wqn641214',
         'HOST': '127.0.0.1',

@@ -53,22 +53,22 @@ def __authorize_by_code(request):
     # User.objects.get(open_id=open_id) # 不要用get，用get查询如果结果数量 !=1 就会抛异常
     # 如果用户不存在，则新建用户
     if not User.objects.filter(open_id=open_id):
-        if nickname != "宁默":
-            response['result_code'] = ReturnCode.FAILED
-            response['message'] = 'You are not my kids.'
-            return JsonResponse(response, safe=False)
-        else:
-            new_user = User(open_id=open_id, nickname=nickname)
-            # 初始化新用户
-            new_user.save()
-            # 默认情况下为用户添加“图片上传功能”
-            initMenu = []
-            imageApp = App.objects.get(appid='549eaaf72cb23716e2b1313acfaed23c')  # 图片上传
-            # print("this is myInit method in User: ", imageApp.to_dict())
-            initMenu.append(imageApp)
-            new_user.menu.set(initMenu)
-            # print("add new user : ",new_user.nickname)
-            logger.info("add a new user : " + new_user.nickname)
+        # if nickname != "宁默":
+        #     response['result_code'] = ReturnCode.FAILED
+        #     response['message'] = 'You are not my kids.'
+        #     return JsonResponse(response, safe=False)
+        # else:
+        new_user = User(open_id=open_id, nickname=nickname)
+        # 初始化新用户
+        new_user.save()
+        # 默认情况下为用户添加“图片上传功能”
+        initMenu = []
+        imageApp = App.objects.get(appid='549eaaf72cb23716e2b1313acfaed23c')  # 图片上传
+        # print("this is myInit method in User: ", imageApp.to_dict())
+        initMenu.append(imageApp)
+        new_user.menu.set(initMenu)
+        # print("add new user : ",new_user.nickname)
+        logger.info("add a new user : " + new_user.nickname)
 
 
     message = 'user authorize successfully.'
