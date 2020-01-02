@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-from apps.models import App
+from apps.models.myApp import App
 
 
 class User(models.Model):

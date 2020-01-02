@@ -15,7 +15,7 @@ from django.views import View
 
 from myWX_l_ningmo import settings
 from authorization.models import User
-from apps.models import App
+from apps.models.myApp import App
 
 import utils.myResponse
 from utils.auth import already_authorized, get_user

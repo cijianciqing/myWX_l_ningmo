@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-#
+
+#-------------------------------------------------------------------------------
+# Name:         myApp
+# Description:  
+# Author:       Administrator
+# Date:         2020-01-01
+#-------------------------------------------------------------------------------
 from django.db import models
 
 # Create your models here.

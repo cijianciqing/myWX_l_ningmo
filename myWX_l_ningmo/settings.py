@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+MyServerPrefix = 'http://172.16.207.119:8000'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
@@ -131,15 +131,24 @@ USE_L10N = True
 USE_TZ = True
 
 
+# 配置 MEDIA_URL 作为公用 URL，指向上传文件的基本路径
+MEDIA_URL = '/media/'
+# 配置 MEDIA_ROOT 作为你上传文件在服务器中的基本路径
+MEDIA_ROOT = os.path.join(BASE_DIR, 'upload') # 注意此处不要写成列表或元组的形式
+# 配置 MEDIA_URL 作为公用 URL，指向上传文件的基本路径
+
+IMAGES_DIR = os.path.join(BASE_DIR, 'upload')
+#
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static")
+# ]
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
-#静态文件路径的别名，一般设置为/static/
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
-STATICFILES_DIRS=(
-    os.path.join(BASE_DIR, "staticHtml/"),
-)
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "myallStatic/")
 
 #设置session
 SESSION_COOKIE_AGE = 10*60 # 设置过期时间10分钟，默认为两周
@@ -151,13 +160,14 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # 设置关闭浏览器时失效
 WX_APP_SECRET = 'afccc25cbadee65a0d6e9f13ef8cafbf'
 
 
-#设置图片保存位置
+#设置图片保存位置,暂时无用【2020.1.1】
 IMAGES_DIR = os.path.join(BASE_DIR, 'uploadImages')
 if not os.path.exists(IMAGES_DIR):
     os.makedirs(IMAGES_DIR)
 
 
 
+#
 # logging日志配置
 LOG_DIR = os.path.join(BASE_DIR, 'myLog')
 if not os.path.exists(LOG_DIR):

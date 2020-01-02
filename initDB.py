@@ -19,7 +19,7 @@ from myWX_l_ningmo import settings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myWX_l_ningmo.settings')
 django.setup()
 
-from apps.models import App
+from apps.models.myApp import App
 
 def init_app_data():
     old_apps = App.objects.all()
