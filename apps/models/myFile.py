@@ -31,6 +31,8 @@ class WeiXinFile(models.Model):
     name = models.CharField(max_length=200)
     type = models.CharField(max_length=10, choices=WeiXinFile_Types,default="image")
     file = models.FileField(upload_to=image_upload_to)
+    # 图片得票数
+    votes = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

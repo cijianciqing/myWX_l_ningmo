@@ -14,8 +14,8 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# MyServerPrefix = 'http://127.0.0.1:8000'
-MyServerPrefix = 'http://www.cijianciqing.xyz'
+MyServerPrefix = 'http://127.0.0.1:8000'
+# MyServerPrefix = 'http://www.cijianciqing.xyz'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 

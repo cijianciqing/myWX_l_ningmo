@@ -138,3 +138,109 @@
 2020-01-02 15:21:26,194 [Thread-1:5784] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:104] [INFO]- 1111
 2020-01-02 15:21:26,195 [Thread-1:5784] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /service/getRecentWX HTTP/1.1" 200 237
 2020-01-02 15:21:26,223 [Thread-8:9948] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /media/weixinFiles/2020-01-02---2NtCGl8X---31a5bf4b179b2466.jpg HTTP/1.1" 200 174802
+2020-01-09 19:06:36,090 [MainThread:6452] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\db\backends\base\schema.py:execute:124] [DEBUG]- ALTER TABLE `apps_weixinfile` ADD COLUMN `votes` integer DEFAULT %s NOT NULL; (params [0])
+2020-01-09 19:06:37,303 [MainThread:6452] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\db\backends\base\schema.py:execute:124] [DEBUG]- ALTER TABLE `apps_weixinfile` ALTER COLUMN `votes` DROP DEFAULT; (params [])
+2020-01-09 19:16:48,607 [Thread-1:8636] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\utils\log.py:log_response:222] [ERROR]- Internal Server Error: /service/getRecentWX
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py", line 87, in getRecentWX
+    recentFiles = WeiXinFile.objects.get(type='image').order_by('votes')[:10]
+AttributeError: 'WeiXinFile' object has no attribute 'order_by'
+2020-01-09 19:16:48,610 [Thread-1:8636] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [ERROR]- "GET /service/getRecentWX HTTP/1.1" 500 27
+2020-01-09 19:16:59,050 [Thread-1:8636] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\utils\log.py:log_response:222] [ERROR]- Internal Server Error: /service/getRecentWX
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py", line 87, in getRecentWX
+    recentFiles = WeiXinFile.objects.get(type='image').order_by('votes')[:10]
+AttributeError: 'WeiXinFile' object has no attribute 'order_by'
+2020-01-09 19:16:59,051 [Thread-1:8636] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [ERROR]- "GET /service/getRecentWX HTTP/1.1" 500 27
+2020-01-09 19:17:25,196 [Thread-1:8636] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\utils\log.py:log_response:222] [ERROR]- Internal Server Error: /service/getRecentWX
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py", line 87, in getRecentWX
+    recentFiles = WeiXinFile.objects.get(type='image').order_by('votes')[:10]
+AttributeError: 'WeiXinFile' object has no attribute 'order_by'
+2020-01-09 19:17:25,198 [Thread-1:8636] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [ERROR]- "GET /service/getRecentWX HTTP/1.1" 500 27
+2020-01-09 19:18:14,246 [Thread-1:8636] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\utils\log.py:log_response:222] [ERROR]- Internal Server Error: /service/getRecentWX
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py", line 87, in getRecentWX
+    recentFiles = WeiXinFile.objects.get(type='image').order_by('votes')[:10]
+AttributeError: 'WeiXinFile' object has no attribute 'order_by'
+2020-01-09 19:18:14,248 [Thread-1:8636] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [ERROR]- "GET /service/getRecentWX HTTP/1.1" 500 27
+2020-01-09 19:19:03,840 [Thread-1:9212] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\utils\log.py:log_response:222] [ERROR]- Internal Server Error: /service/getRecentWX
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py", line 87, in getRecentWX
+    recentFiles = WeiXinFile.objects.get(type='image')[:10].order_by('votes')
+TypeError: 'WeiXinFile' object is not subscriptable
+2020-01-09 19:19:03,842 [Thread-1:9212] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [ERROR]- "GET /service/getRecentWX HTTP/1.1" 500 27
+2020-01-09 19:19:58,958 [Thread-1:8640] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\utils\log.py:log_response:222] [ERROR]- Internal Server Error: /service/getRecentWX
+Traceback (most recent call last):
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\exception.py", line 34, in inner
+    response = get_response(request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 126, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\handlers\base.py", line 124, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py", line 87, in getRecentWX
+    recentFiles = WeiXinFile.objects.get(type='image')[:10]
+TypeError: 'WeiXinFile' object is not subscriptable
+2020-01-09 19:19:58,959 [Thread-1:8640] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [ERROR]- "GET /service/getRecentWX HTTP/1.1" 500 27
+2020-01-09 19:21:03,331 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:95] [INFO]- /media/weixinFiles/2020-01-02---2NtCGl8X---31a5bf4b179b2466.jpg
+2020-01-09 19:21:03,331 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:100] [INFO]- 2222
+2020-01-09 19:21:03,331 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:105] [INFO]- 1111
+2020-01-09 19:21:03,332 [Thread-1:2792] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /service/getRecentWX HTTP/1.1" 200 237
+2020-01-09 19:21:03,532 [Thread-3:6060] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /media/weixinFiles/2020-01-02---2NtCGl8X---31a5bf4b179b2466.jpg HTTP/1.1" 200 174802
+2020-01-09 19:21:40,495 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:95] [INFO]- /media/weixinFiles/2020-01-02---2NtCGl8X---31a5bf4b179b2466.jpg
+2020-01-09 19:21:40,495 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:100] [INFO]- 2222
+2020-01-09 19:21:40,495 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:105] [INFO]- 1111
+2020-01-09 19:21:40,496 [Thread-1:2792] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /service/getRecentWX HTTP/1.1" 200 237
+2020-01-09 19:21:44,189 [Thread-1:2792] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /auth/status HTTP/1.1" 200 70
+2020-01-09 19:21:48,267 [Thread-1:2792] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /auth/status HTTP/1.1" 200 70
+2020-01-09 19:21:51,807 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\utils\wx\code2session.py:code2session:20] [INFO]- result from weixinServer : 
+2020-01-09 19:21:52,018 [Thread-1:2792] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "POST /auth/authorize HTTP/1.1" 200 61
+2020-01-09 19:21:54,321 [Thread-1:2792] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /auth/status HTTP/1.1" 200 70
+2020-01-09 19:21:54,348 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\menu.py:get:53] [INFO]- session content in service/menu/user: yqpm8nzltdizfbevtt2yrkoamz8zkgdn
+2020-01-09 19:21:54,396 [Thread-1:2792] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /service/menu/user HTTP/1.1" 200 480
+2020-01-09 19:22:07,583 [Thread-5:5276] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "POST /service/saveWX HTTP/1.1" 200 215
+2020-01-09 19:22:07,583 [Thread-4:9100] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "POST /service/saveWX HTTP/1.1" 200 215
+2020-01-09 19:22:07,671 [Thread-6:3640] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "POST /service/saveWX HTTP/1.1" 200 215
+2020-01-09 19:22:07,672 [Thread-7:9716] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "POST /service/saveWX HTTP/1.1" 200 215
+2020-01-09 19:22:10,862 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:95] [INFO]- /media/weixinFiles/2020-01-02---2NtCGl8X---31a5bf4b179b2466.jpg
+2020-01-09 19:22:10,862 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:95] [INFO]- /media/weixinFiles/2020-01-09---gEx6NC1c---31a5bf4b179b2466.jpg
+2020-01-09 19:22:10,862 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:95] [INFO]- /media/weixinFiles/2020-01-09---wmb8Ex2z---65b91fbd154d778f.jpg
+2020-01-09 19:22:10,863 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:95] [INFO]- /media/weixinFiles/2020-01-09---mk8yORwC---0c91a6be71c0c94c.jpg
+2020-01-09 19:22:10,863 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:95] [INFO]- /media/weixinFiles/2020-01-09---7lOj16Rw---efc2bae4a165e76e.png
+2020-01-09 19:22:10,863 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:100] [INFO]- 2222
+2020-01-09 19:22:10,863 [Thread-1:2792] [G:\pythonProject\Django\myWX_l_ningmo\apps\views\weixinFile.py:getRecentWX:105] [INFO]- 1111
+2020-01-09 19:22:10,864 [Thread-1:2792] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /service/getRecentWX HTTP/1.1" 200 849
+2020-01-09 19:22:10,891 [Thread-3:6060] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /media/weixinFiles/2020-01-09---gEx6NC1c---31a5bf4b179b2466.jpg HTTP/1.1" 200 174802
+2020-01-09 19:22:10,896 [Thread-8:9512] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /media/weixinFiles/2020-01-09---wmb8Ex2z---65b91fbd154d778f.jpg HTTP/1.1" 200 221649
+2020-01-09 19:22:10,900 [Thread-9:9988] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /media/weixinFiles/2020-01-09---mk8yORwC---0c91a6be71c0c94c.jpg HTTP/1.1" 200 226266
+2020-01-09 19:22:10,907 [Thread-10:8204] [C:\ProgramData\Anaconda3\envs\myP38\lib\site-packages\django\core\servers\basehttp.py:log_message:154] [INFO]- "GET /media/weixinFiles/2020-01-09---7lOj16Rw---efc2bae4a165e76e.png HTTP/1.1" 200 183237

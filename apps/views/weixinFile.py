@@ -83,7 +83,8 @@ def saveWX(request):
 #获取最近上传的10个文件
 
 def getRecentWX(request):
-    recentFiles = WeiXinFile.objects.all().order_by('pk')[:10]
+    # 暂且设置，只获取图片
+    recentFiles = WeiXinFile.objects.filter(type='image').order_by('votes')[:10]
     imageList = []
     videoList = []
     response_data = []
